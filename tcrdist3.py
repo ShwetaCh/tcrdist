@@ -3,6 +3,7 @@
 # conda activate tcrdist3 
 # pip install tcrdist3==0.2.2
 # pip install python-louvain 
+# pip install cairosvg
 
 ## Way to run
 # python3 tcrdist3.py
