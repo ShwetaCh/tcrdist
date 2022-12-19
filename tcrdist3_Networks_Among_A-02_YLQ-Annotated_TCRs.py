@@ -85,3 +85,28 @@ nx.draw(G,
         **options)
 
 plt.savefig('Net2.pdf')
+
+
+### Make Snakey plot
+
+import IPython
+from tcrdist import plotting
+
+clone_df_ylq = tr.clone_df.copy()
+clone_df_ylq['cluster_alpha_beta'] = [str(partition.get(i)) if partition.get(i) is not None else None for i in clone_df_ylq.index]
+
+import IPython
+from tcrdist import plotting
+
+# Note that not all clones were part of the network so subset to those
+# that are .notna()
+
+clone_df_ylq_clustered = clone_df_ylq[clone_df_ylq.cluster_alpha_beta.notna()]
+
+svg = plotting.plot_pairings(cell_df = clone_df_ylq_clustered,
+                             cols = ['j_a_gene','v_a_gene',
+                                     'cluster_alpha_beta',
+                                     'v_b_gene' ,'j_b_gene'],
+                             count_col='count')
+
+IPython.display.SVG(data=svg)
