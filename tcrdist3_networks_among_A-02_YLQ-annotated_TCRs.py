@@ -87,7 +87,7 @@ nx.draw(G,
 plt.savefig('Net2.pdf')
 
 
-### Make Snakey plot
+## Gene Usage with Sankey Diagrams### Make Snakey plot
 
 import IPython
 from tcrdist import plotting
@@ -108,5 +108,25 @@ svg = plotting.plot_pairings(cell_df = clone_df_ylq_clustered,
                                      'cluster_alpha_beta',
                                      'v_b_gene' ,'j_b_gene'],
                              count_col='count')
-
 IPython.display.SVG(data=svg)
+with open("YLQ_clusters.svg", 'w') as oh: oh.write(svg)
+
+## Plot Cluster 0 only
+
+import IPython
+from tcrdist import plotting
+cluster_df =  clone_df_ylq.query("cluster_alpha_beta == '0'")
+svg = plotting.plot_pairings(cell_df = cluster_df,
+                             cols = ['j_a_gene','v_a_gene','cluster_alpha_beta', 'v_b_gene' ,'j_b_gene'],
+                             count_col='count')
+IPython.display.SVG(data=svg)
+with open("YLQ_clusters_cluster0.svg", 'w') as oh: oh.write(svg)
+
+## Plot cluster 1 only
+
+cluster_df =  clone_df_ylq.query("cluster_alpha_beta == '1'")
+svg = plotting.plot_pairings(cell_df = cluster_df,
+                             cols = ['j_a_gene','v_a_gene','cluster_alpha_beta', 'v_b_gene' ,'j_b_gene'],
+                             count_col='count')
+IPython.display.SVG(data=svg)
+with open("YLQ_clusters_cluster1.svg", 'w') as oh: oh.write(svg)
