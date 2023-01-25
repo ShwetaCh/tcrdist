@@ -13,7 +13,7 @@
 #tcrsampler for generating V-J gene-matched background receptor sets (non productive from human/mouse)
 #pwseqdist for efficient and parallelizable pairwise distance computation
 
-## Run ONE time only
+## Run ONE time only to get preformatted back- ground sequence files
 #from tcrsampler.setup_db import install_all_next_gen
 #install_all_next_gen(dry_run = False)
 
