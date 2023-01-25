@@ -52,3 +52,5 @@ no_wrap_div = '<div><h3>{}</h3><h5>_________alpha CDR3 Logo {}________'\ 'beta C
 display(HTML(no_wrap_div.format(label, regex_alpha,regex_beta,
 background_subtracted_svg_alpha, background_subtracted_svg_beta, raw_svg_alpha,raw_svg_beta)))
 custom_logo_routine(cluster_df = cluster_df, label = "Cluster 1")
+                                  
+# If the svg_logo function is run with return_str 1⁄4 False and filename 1⁄4 “out- put_name.svg”, it can be used to write SVG vector graphics directly to a file 
